@@ -10,3 +10,31 @@ h1, h2, h3, h4, h5, h6 {
 .para-header {
     color: #313131;
 }
+
+.wrap {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh; /* initial height of sidebar is atleast page height */
+    margin-left: -250px;
+    color: rgba(255,255,255,.6);
+    background-color: #202020;
+    font-family: "PT Sans", Helvetica, Arial, sans-serif;
+    
+    transition: all 0.3s ease-in-out;
+}
+
+#sidebar.active {
+    margin-left: 0;
+}
+
+#sidebar-collapse {
+    color: #505050;
+    background-color: #fff;
+    border-radius: .25rem;
+}

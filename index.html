@@ -2,13 +2,61 @@
 <html>
     <head>
         <title>Pritish's Webpage @ IITB</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- CSS links here -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" media="screen"/>
         <link href="css/style.css" rel="stylesheet" media="screen"/>
     </head>
     <body>
-        <h1>Fill in this space with stuff</h1>
+        <div class="wrap">
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <h3>Navigation Menu</h3>
+                </div>
+
+                <ul class="list-unstyled components">
+                    <!-- Add photo here -->
+                    <p>My photo</p>
+
+                    <li class="active">
+                        <a href="#">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Projects</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Education</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Register</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div id="content">
+                <nav class="navbar navbar-expand-lg">
+                    <div class="container-fluid">
+                        <button type="button" id="sidebar-collapse" class="btn btn-info">
+                            <span><i class="fas fa-bars fa-align-left"></i></span>
+                        </button>
+                    </div>
+                </nav>
+                <h1>Fill in this space with stuff</h1>
+            </div>
+        </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", function() {
+
+                document.getElementById('sidebar-collapse').addEventListener('click', function() {
+                    document.getElementById('sidebar').classList.toggle('active');
+                });
+            });
+        </script>
     </body> 
 </html>
