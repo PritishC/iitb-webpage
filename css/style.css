@@ -117,3 +117,38 @@ img.avatar {
     border-radius: 50%;
     max-width: 175px;
 }
+
+.text-content {
+    min-height: calc(100vh - 70px);
+}
+
+.footer {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-top: 3rem;
+    border-top: 1px solid #eee;
+    height: 50px;
+}
+
+.copyright {
+    font-size: 1.25rem;
+    font-family: "PT Sans", Helvetica, Arial, sans-serif;
+    color: #313131;
+}
+
+.social-icon {
+    margin-left: 2rem;
+}
+
+.social-icon > a {
+    padding-left: 1rem;
+    text-decoration: none;
+    color: grey;
+}
+
+a.linkedin:hover, a.linkedin:focus {
+    color: #2867b2;
+}
+a.github:hover, a.linkedin:focus {
+    color: black;
+}
