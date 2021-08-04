@@ -39,20 +39,30 @@
             </nav>
 
             <div id="content">
-                <nav class="navbar navbar-expand-lg">
-                    <div class="container-fluid">
-                        <button type="button" id="sidebar-collapse" class="btn btn-info">
-                            <span><i class="fas fa-bars fa-align-left"></i></span>
-                        </button>
+                <div class="page-top">
+                    <div class="container nav-container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <nav class="navbar navbar-expand-lg">
+                                    <button type="button" id="sidebar-collapse" class="btn btn-info">
+                                        <span><i class="fas fa-bars fa-align-left"></i></span>
+                                    </button>
+                                </nav>
+                            </div>
+                            <div class="col-md-9">
+                                <h1>Top Title</h1>
+                            </div>
+                        </div>
                     </div>
-                </nav>
-                <h1>Fill in this space with stuff</h1>
+                </div>
+                <div class="container content">
+                    <h1>Fill in this space with stuff</h1>
+                </div>
             </div>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.min.js"></script>
         <script type="text/javascript">
             document.addEventListener("DOMContentLoaded", function() {
-
                 document.getElementById('sidebar-collapse').addEventListener('click', function() {
                     document.getElementById('sidebar').classList.toggle('active');
                 });

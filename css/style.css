@@ -25,7 +25,6 @@ h1, h2, h3, h4, h5, h6 {
     color: rgba(255,255,255,.6);
     background-color: #202020;
     font-family: "PT Sans", Helvetica, Arial, sans-serif;
-    
     transition: all 0.3s ease-in-out;
 }
 
@@ -37,4 +36,33 @@ h1, h2, h3, h4, h5, h6 {
     color: #505050;
     background-color: #fff;
     border-radius: .25rem;
+}
+
+#content {
+    width: 100%;
+}
+
+.container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 38rem;
+}
+
+.container.nav-container {
+    margin-left: 1rem;
+    margin-top: -10px;
+    max-width: 100%;
+}
+
+.page-top {
+    display: block;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid #eee;
+    height: 70px;
 }
