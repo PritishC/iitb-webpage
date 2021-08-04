@@ -55,6 +55,14 @@ li.nav-item {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     border-bottom: 1px solid rgba(255,255,255,.1);
+    cursor: pointer;
+}
+
+li.nav-item.active, li.nav-item:hover,
+li.nav-item:focus {
+    text-decoration: none;
+    background-color: rgba(255,255,255,.1);
+    border-color: transparent;
 }
 
 #content {
@@ -71,9 +79,14 @@ li.nav-item {
     padding-right: 1rem;
     margin-left: auto;
     margin-right: auto;
-    white-space: nowrap;
-    overflow: hidden;
     max-width: 38rem;
+}
+
+@media (max-width: 38em) {
+    .container {
+        overflow: hidden;
+        white-space: nowrap;
+    }
 }
 
 .container.nav-container {
@@ -89,4 +102,18 @@ li.nav-item {
     margin-bottom: 3rem;
     border-bottom: 1px solid #eee;
     height: 70px;
+}
+
+div.avatar {
+    display: block;
+    height: auto;
+    width: auto;
+    vertical-align: top;
+}
+
+img.avatar {
+    padding: 5px;
+    border: 1px none #f2f3f3;
+    border-radius: 50%;
+    max-width: 175px;
 }
