@@ -122,6 +122,14 @@ img.avatar {
     min-height: calc(100vh - 70px);
 }
 
+div.nav-item-for {
+    display: none;
+}
+
+div.nav-item-for.active {
+    display: block;
+}
+
 .footer {
     padding-top: 1rem;
     padding-bottom: 1rem;

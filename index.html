@@ -23,23 +23,23 @@
                 </div>
 
                 <ul class="list-unstyled components">
-                    <li class="active nav-item">
+                    <li class="active nav-item" for="home">
                         <a href="#">Home</a>
                     </li>
 
-                    <li class="nav-item">
+                    <li class="nav-item" for="projects">
                         <a href="#">Projects</a>
                     </li>
 
-                    <li class="nav-item">
+                    <li class="nav-item" for="hobbies">
                         <a href="#">Hobbies</a>
                     </li>
 
-                    <li class="nav-item">
+                    <li class="nav-item" for="education">
                         <a href="#">Education</a>
                     </li>
 
-                    <li class="nav-item">
+                    <li class="nav-item" for="register">
                         <a href="#">Register</a>
                     </li>
                 </ul>
@@ -64,9 +64,19 @@
                 </div>
 
                 <div class="container text-content">
-                    <h2>Fill in this space with stuff</h2>
-                    <p>This is some content I want to add here, hopefully
-                    we'll be able to deploy with it.</p>
+                    <div class="nav-item-for active" for="home">
+                        <h2>Fill in this space with stuff</h2>
+                        <p>This is some content I want to add here, hopefully
+                        we'll be able to deploy with it.</p>
+                    </div>
+                    <div class="nav-item-for" for="projects">
+                    </div>
+                    <div class="nav-item-for" for="hobbies">
+                    </div>
+                    <div class="nav-item-for" for="education">
+                    </div>
+                    <div class="nav-item-for" for="register">
+                    </div>
                 </div>
                 <div class="footer">
                     <div class="container">
@@ -87,6 +97,42 @@
             document.addEventListener("DOMContentLoaded", function() {
                 document.getElementById('sidebar-collapse').addEventListener('click', function() {
                     document.getElementById('sidebar').classList.toggle('active');
+                });
+
+                var navItems = document.getElementsByClassName("nav-item");
+
+                Array.prototype.map.call(navItems, function(navItem) {
+                    navItem.addEventListener('click', function() {
+                        if (navItem.classList.contains('active')) {
+                            // if we click on the currently active element, do nothing.
+                            return;
+                        }
+
+                        // Remove "active" from the currently active element first.
+                        var navActive = document.querySelector('li.nav-item.active');
+                        navActive.classList.toggle('active');
+
+                        // Set "active" on the intended navItem.
+                        navItem.classList.toggle('active');
+
+                        // Remaining code deals with showing content divs.
+                        var navItemForAttr = navItem.getAttribute('for'),
+                            navItemDivs = document.getElementsByClassName('nav-item-for');
+
+                        Array.prototype.map.call(navItemDivs, function(div) {
+                            divForAttr = div.getAttribute('for');
+
+                            // Remove "active" from the div that currently has it.
+                            if (div.classList.contains('active')) {
+                                div.classList.toggle('active');
+                            }
+
+                            // Activate the intended div.
+                            if (divForAttr === navItemForAttr) {
+                                div.classList.toggle('active');
+                            }
+                        });
+                    });
                 });
             });
         </script>
