@@ -83,6 +83,7 @@ li.nav-item:focus {
 }
 
 @media (max-width: 38em) {
+    /* TODO: Fix layout problems with text when I shorten window size */
     .container {
         overflow: hidden;
         white-space: nowrap;
@@ -159,4 +160,14 @@ a.linkedin:hover, a.linkedin:focus {
 }
 a.github:hover, a.linkedin:focus {
     color: black;
+}
+
+iframe {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+/* Override Bootstrap table CSS */
+tbody, td, tfoot, th, thead, tr {
+    border-width: thick;
 }
