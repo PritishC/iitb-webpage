@@ -14,7 +14,7 @@
             <nav id="sidebar">
                 <div class="sidebar-header">
                     <div class="avatar">
-                        <img class="avatar" src="img/profile.jpg" alt="Me">
+                        <img class="avatar" src="img/profile.jpg" alt="Me" title="Boo!">
                     </div>
                     <p>
                         Based off the Lanyon theme for Jekyll. Compiled by me.
@@ -151,7 +151,7 @@
                         </div>
 
                         <ul class="hidden-list">
-                            <li id="photo-content">
+                            <li id="photo-content" class="hobby-content">
                                 <h4>Photography</h4>
                                 <p>
                                     If it isn't obvious by now, I love DSLR photography. My stock camera is an old
@@ -176,7 +176,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li id="music-content">
+                            <li id="music-content" class="hobby-content">
                                 <h4>Music</h4>
                                 <p>
                                     I've delved into a variety of genres over the past few years, ever since I got myself
@@ -201,7 +201,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li id="game-content">
+                            <li id="game-content" class="hobby-content">
                                 <h4>Gaming</h4>
                                 <p>
                                     I used to be a hardcore PC gamer before I shifted to playing mostly multiplayer
@@ -338,7 +338,7 @@
                         return box.checked;
                     }), selHobbyText = Array.prototype.map.call(selectedHobbies, function(box) {
                         return box.labels[0].innerText;
-                    }), contentItems = document.querySelector("ul.hidden-list > li");
+                    }), contentItems = document.getElementsByClassName("hobby-content");
 
                     if (confirm("Would you like to expand on these hobbies? -:\n" + selHobbyText.join(", "))) {
                         // Hide all list items and then show the ones selected.
@@ -347,9 +347,7 @@
                         }
 
                         for (var i = 0; i < selectedHobbies.length; i++) {
-                            if (selectedHobbies[i].checked) {
-                                document.getElementById(selectedHobbies[i].id + "-content").style.display = "block";
-                            }
+                            document.getElementById(selectedHobbies[i].id + "-content").style.display = "block";
                         }
                     }
                 });
