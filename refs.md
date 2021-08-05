@@ -8,3 +8,6 @@
 * CSS Tricks for things like the sticky footer
 * https://divtable.com/generator/ to generate the HTML table in education
 * https://developer.mozilla.org/ MDN for javascript documentation
+* MasonryJS for photo tiles
+* https://codepen.io/iamsaief/pen/jObaoKo for MasonryJS example with flexbox
+* My own Instagram for my photos: https://instagram.com/reluctant.outdoors

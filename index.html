@@ -133,6 +133,84 @@
                     </div>
                     <div class="nav-item-for" for="hobbies">
                         <h2>Hobbies</h2>
+                        <div class="row">
+                            <div id="checkboxes">
+                                <p>Choose hobbies you want to learn more about -:</p>
+                                <ul>
+                                    <li><label><input type="checkbox" id="photo" class="hobby-box"> Photography</label></li>
+                                    <li><label><input type="checkbox" id="music" class="hobby-box"> Listening to music</label></li>
+                                    <li><label><input type="checkbox" id="game" class="hobby-box"> Gaming</label></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="container hobbies-submit">
+                                <button id="hobby-submit" type="submit" class="btn btn-info" disabled>Submit</button>
+                            </div>
+                        </div>
+
+                        <ul class="hidden-list">
+                            <li id="photo-content">
+                                <h4>Photography</h4>
+                                <p>
+                                    If it isn't obvious by now, I love DSLR photography. My stock camera is an old
+                                    Nikon D40 from the 2000s. I also use a Nikon D3400 from dad's office occasionally.
+                                    Below are some photos I took during the previous decade - enjoy!
+                                </p>
+                                <div class="grid masonry-grid">
+                                    <div class="grid-item wide">
+                                        <img src="img/stars.jpg" title="A long-exposure shot of the stars at Pangong lake, Leh"/>
+                                    </div>
+                                    <div class="grid-item">
+                                        <img src="img/eravikulam.jpg" title="A landscape shot at Eravikulam National Park, Munnar, Kerala"/>
+                                    </div>
+                                    <div class="grid-item tall">
+                                        <img src="img/tree.jpg" title="A super-focus shot of a tree beside the temple at Renuka lake, Nahan"/>
+                                    </div>
+                                    <div class="grid-item">
+                                        <img src="img/ferris.jpg" title="An experimental long-exposure shot of the ferris wheel during the Surajkund Mela, Haryana"/>
+                                    </div>
+                                    <div class="grid-item wide">
+                                        <img src="img/pangong.jpg" title="Panorama of Pangong lake taken by phone"/>
+                                    </div>
+                                </div>
+                            </li>
+                            <li id="music-content">
+                                <h4>Music</h4>
+                                <p>
+                                    I've delved into a variety of genres over the past few years, ever since I got myself
+                                    an Apple Music subscription. The last genre that I listened a lot to was progressive
+                                    rock. I also enjoy instrumentals (piano, Hindustani classical such as sarod).
+                                </p>
+                                <div class="grid masonry-grid">
+                                    <div class="grid-item">
+                                        <img src="https://upload.wikimedia.org/wikipedia/en/2/29/De-Loused_in_the_Comatorium.jpeg" title="The Mars Volta - De-loused in the Comatorium"/>
+                                    </div>
+                                    <div class="grid-item">
+                                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a1/Ludovico_Divenire.jpg/220px-Ludovico_Divenire.jpg" title="Ludovico Einaudi"/>
+                                    </div>
+                                    <div class="grid-item tall">
+                                        <img src="https://i.scdn.co/image/ab67616d0000b27364db78890673f1f03229d773" title="Rogerio Tutti covering Philip Glass"/>
+                                    </div>
+                                    <div class="grid-item tall">
+                                        <img src="https://cdn.mos.cms.futurecdn.net/vLfnfs9keXBiS8dnqjcqW9.jpg" title="Opeth's Blackwater Park"/>
+                                    </div>
+                                    <div class="grid-item wide">
+                                        <img src="https://sdlhivkcdnems04.cdnsrv.jio.com/c.saavncdn.com/302/The-Best-Of-Ustad-Ali-Akbar-Khan-Ever-Hindustani-1995-500x500.jpg" title="Ustad Ali Akbar Khan on the sarod"/>
+                                    </div>
+                                </div>
+                            </li>
+                            <li id="game-content">
+                                <h4>Gaming</h4>
+                                <p>
+                                    I used to be a hardcore PC gamer before I shifted to playing mostly multiplayer
+                                    with friends on console. I've played too many games to list here on the PC, and
+                                    on console I've played games such as the Uncharted series, the Destiny series,
+                                    the Halo series, and more. I haven't played much in the past few years, but
+                                    who knows, maybe I will again?
+                                </p>
+                            </li>
                     </div>
                     <div class="nav-item-for" for="education">
                         <h2>Education</h2>
@@ -188,6 +266,8 @@
             </div>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"></script>
+
         <script type="text/javascript">
             document.addEventListener("DOMContentLoaded", function() {
                 document.getElementById('sidebar-collapse').addEventListener('click', function() {
@@ -229,6 +309,51 @@
                         });
                     });
                 });
+
+                // Hobby checkboxes and submit
+                var hobbyBoxes = document.getElementsByClassName("hobby-box"),
+                    submitBtn = document.getElementById('hobby-submit');
+                Array.prototype.map.call(hobbyBoxes, function(box) {
+                    box.addEventListener('change', function() {
+                        if (box.checked) {
+                            submitBtn.disabled = false;
+                        } else {
+                            var flag = 0;
+
+                            for(var i = 0; i < hobbyBoxes.length; i++) {
+                                if (hobbyBoxes[i].checked) {
+                                    flag = 1;
+                                    break;
+                                }
+                            }
+
+                            if (!flag)
+                                submitBtn.disabled = true;
+                        }
+                    });
+                });
+
+                submitBtn.addEventListener("click", function() {
+                    var selectedHobbies = Array.prototype.filter.call(hobbyBoxes, function(box) {
+                        return box.checked;
+                    }), selHobbyText = Array.prototype.map.call(selectedHobbies, function(box) {
+                        return box.labels[0].innerText;
+                    }), contentItems = document.querySelector("ul.hidden-list > li");
+
+                    if (confirm("Would you like to expand on these hobbies? -:\n" + selHobbyText.join(", "))) {
+                        // Hide all list items and then show the ones selected.
+                        for (var i = 0; i < contentItems.length; i++) {
+                            contentItems[i].style.display = "none";
+                        }
+
+                        for (var i = 0; i < selectedHobbies.length; i++) {
+                            if (selectedHobbies[i].checked) {
+                                document.getElementById(selectedHobbies[i].id + "-content").style.display = "block";
+                            }
+                        }
+                    }
+                });
+
             });
         </script>
     </body> 
