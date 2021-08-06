@@ -12,3 +12,5 @@
 * https://codepen.io/iamsaief/pen/jObaoKo for MasonryJS example with flexbox
 * My own Instagram for my photos: https://instagram.com/reluctant.outdoors
 * Google Forms for making the form
+* https://canva.com to make the introduction video
+* Youtube to host the video
